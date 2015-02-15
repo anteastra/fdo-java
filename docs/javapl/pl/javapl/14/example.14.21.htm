@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+public class Test {
+   private class TestObject {
+      private String name = "";
+      public TestObject(String name) {
+         this.name = name;
+      }
+   }
+   private class MyComparator implements Comparator {
+      public int compare(Object l,Object r) {
+         String left = (String)l;
+         String right = (String)r;
+         return -1 * left.compareTo(right);
+      }
+   }
+   public Test() {
+   }
+
+   public static void main(String[] args) {
+      Test test = new Test();
+      Vector v = new Vector();
+      v.add("bbbbb");
+      v.add("aaaaa");
+      v.add("ccccc");
+      System.out.println("Default elements order");
+      test.dumpList(v);
+      Collections.sort(v);
+      System.out.println("Default sorting order");
+      test.dumpList(v);
+      System.out.println("Reverse sorting order with providing imlicit comparator");
+      Collections.sort(v,test.new MyComparator());
+      test.dumpList(v);
+   }
+   private void dumpList(List l) {
+      Iterator it = l.iterator();
+      while(it.hasNext()) {
+         System.out.println(it.next());
+      }
+   }
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            14.21.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

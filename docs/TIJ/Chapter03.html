@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head lang="en"><!-- by.ru advertising --><script language="JavaScript" src="Chapter03_files/upper.js"></script><!--
+This document was converted from RTF source: 
+By rtftohtml 4.19
+See http://www.sunpack.com/RTF
+Filename:TIJ2.rtf
+Application Directory:c:\TOOLS\RTF2HTML\
+Subject:
+Author:Bruce Eckel
+Operator:Bruce Eckel
+Document Comments:
+Version Comments:
+Comments:
+Keywords:
+Translation Date:04/24/2000
+Translation Time:06:35:46
+Translation Platform:Win32
+Number of Output files:23
+This File:Chapter03.html
+SplitDepth=1
+SkipNavPanel=1
+SkipLeadingToc=1
+SkipTrailingToc=1
+GenContents=1
+GenFrames=1
+GenIndex=1
+--><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>3: Управление течением программы</title></head>
+
+
+
+
+
+<body bgcolor="#ffffff">
+<a href="http://www.mindview.net/"> </a> 
+<center>
+  <font face="Verdana" size="-1"> </font> 
+  <h2><font face="Verdana"> Thinking in Java, 2nd edition, Revision 11</font></h2>
+  <h3><font face="Verdana">©2000 by Bruce Eckel</font></h3>
+  <p><font face="Verdana" size="-1"> [ <a href=" Chapter02.html">Предыдущая глава 
+    </a> ] [ <a href=" SimpleContents.html">Оглавление</a> ] [ <a href=" Contents.html">Содержание</a> 
+    ] [ <a href=" DocIndex.html">Индекс</a> ] [ <a href=" Chapter04.html">Следующая 
+    глава </a> ]</font> </p>
+</center>
+  <a name="Heading125"></a><font face="Verdana">
+<h1 align="left"> 3: Управление течением программы</h1>
+</font>
+<p><font face="Georgia" size="4">Подобно мыслящему существу, программа должна управлять 
+  собственным миром и делать выбор при выполнении.</font></p>
+<p><font face="Georgia">В Java вы манипулируете объектами и данными, используя 
+  операторы, и вы делаете выбор с помощью выражений, контролирующих выполнение. 
+  Java был наследован из C++, так что большинство этих выражений будут знакомы 
+  программистам, работающим на C и C++. Java также имеет несколько дополнительных 
+  усовершенствований и упрощений.</font></p>
+<p><font face="Georgia">Если вы почувствуете, что вам немного трудно двигаться 
+  вперед в этой главе, просмотрите мультимедиа CD ROM прилагающийся к этой книге: 
+  <i>Thinking in C: Foundations for Java and C++</i>. Он содержит аудио лекции, 
+  слайды, упражнения и решения, специально подобранные так, чтобы быстро ввести 
+  вас в синтаксис C, необходимый для изучения Java.</font></p>
+<a name="Heading126"></a><font face="Verdana">
+<h2 align="left"> Использование операторов Java</h2>
+</font>
+<p><font face="Georgia">Оператор принимает один или больше аргументов и производит 
+  новое значение. Аргументы располагаются по-другому, в отличие от обычного вызова 
+  метода, но эффект тот же самый. Вы будете чувствовать себя остаточно комфортно 
+  с общей концепцией операторов, основываясь на ваш предыдущий опыт программирования. 
+  Сложение (<b>+</b>), вычитание и унарный минус (<b>-</b>), умножение (<b>*</b>), 
+  деление (<b>/</b>) и присвоение (<b>=</b>) всегда работают так же, как и в других 
+  языках программирования.</font></p>
+<p><font face="Georgia">Все операции производят значения из своих операндов. В 
+  дополнение, оператор может сменить значение операнда. Это называется <i>побочным 
+  действием<a name="Index200"></a></i>. Самое общее в использовании операторов, 
+  которые модифицируют свои операнды, то, что они генерируют побочное действие, 
+  но вы должны держать в уме, что производимое значение доступно для вашего использования 
+  только в операторах без побочных действий.</font></p>
+<p><font face="Georgia">Почти все операторы работают только с примитивными типами. 
+  Исключение составляют <b>‘=</b>’, ‘<b>==</b>’ и ‘<b>!=</b>’, 
+  которые работают со всеми объектами (и являются смущающим местом для объектов). 
+  Вдобавок, класс <b>String </b>поддерживает ‘<b>+</b>’ и ‘<b>+=</b>’.</font><a name="_Toc375545248"></a><a name="_Toc481064542"></a></p>
+<a name="Heading127"></a><font face="Verdana">
+<h3 align="left"> Предшествование<br>
+  <a name="Index201"></a></h3>
+</font> 
+<p><font face="Georgia">Предшествующий оператор определяет, как вычисляется выражение, 
+  когда имеются несколько операторов. Java имеет специальные правила, которые 
+  определяют порядок вычислений. Легче всего запомнить, что умножение и деление 
+  вычисляются перед сложением и вычитанием. Программисты часто забывают другие 
+  правила предшествования, так что вы должны использовать круглые скобки для явного 
+  упорядочивания порядка вычислений. Например:</font></p>
+<blockquote><font size="+1"><pre>A = X + Y - 2/2 + Z;</pre></font></blockquote>
+<p><font face="Georgia">имеет весьма разную трактовку для того же выражения с 
+  круглыми скобками:</font></p>
+<blockquote><font size="+1"><pre>A = X + (Y - 2)/(2 + Z);</pre></font></blockquote>
+<a name="_Toc375545249"></a><a name="_Toc481064543"></a><br>
+<a name="Heading128"></a><font face="Verdana"> 
+<h3 align="left"> Присваение<a name="Index202"></a></h3>
+</font> 
+<p><font face="Georgia">Присваение выполняется с помощью оператора =. Это означает 
+  “взять значение правой части (часто называемое <i>rvalue<a name="Index203"></a></i>) 
+  и скопируй его в левую сторону (часто называемую <i>lvalue<a name="Index204"></a></i>). 
+  rvalue - это любая константа, переменная или выражение, которое может произвести 
+  значение, но lvalue должно быть определенной, поименованной переменной. (То 
+  есть, здесь должно быть физическое пространство для хранения значения.) Например, 
+  вы можете присвоить постоянное значение переменной (<b>A = 4;</b>), но вы не 
+  сможете присвоить ничего постоянному значению — оно не может быть lvalue. 
+  (Вы не можете сказать <b>4 = A;</b>.)</font></p>
+<div align="left"></div>
+<p><font face="Georgia">Присвоение примитивов достаточно прямое и понятное. Так 
+  как примитивы хранят реальное значение, а не ссылку на объект, то когда вы присваиваете 
+  примитивы, вы копируете содержимое с одного места в другое. Например, если вы 
+  говорите <b>A = B</b> для примитивов, то содержимое <b>B</b> копируется в <b>A</b>. 
+  Если вы потом измените <b>A</b>, <b>B</b> не подвергнется изменениям. Как программист, 
+  это то, что вы хотите ожидать в большинству случаев.</font></p>
+<p><font face="Georgia">Однако когда вы <a name="Index205"></a><a name="Index206"></a><a name="Index207"></a><a name="Index208"></a>присваиваете 
+  объекты, все меняется. Когда бы вы ни манипулировали объектом, то, чем вы манипулируете 
+  - ссылка, так что когда вы присваиваете “один объект другому”, на 
+  самом деле вы копируете ссылку из одного места в другое. Это означает, если 
+  вы скажете <b>C = D</b> для объектов, в конце вы получаете, что <b>C</b> и <b>D</b> 
+  указывают на объект, на который первоначально указывает только <b>D</b>. Приведенный 
+  ниже пример будет демонстрировать это.</font><a name="Running_programs"></a></p>
+<p><font face="Georgia">Вот этот пример:</font></p>
+<blockquote><font size="+1">
+  </font><pre><font size="+1"><font color="#009900">//: c03:Assignment.java</font>
+<font color="#009900">// Присвоение объектов немного хитрая вешь.</font>
+
+<font color="#0000ff">class</font> Number {
+  <font color="#0000ff">int</font> i;
+}
+
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> Assignment {
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    Number n1 = <font color="#0000ff">new</font> Number();
+    Number n2 = <font color="#0000ff">new</font> Number();
+    n1.i = 9;
+    n2.i = 47;
+    System.out.println(<font color="#004488">"1: n1.i: "</font> + n1.i +
+      <font color="#004488">", n2.i: "</font> + n2.i);
+    n1 = n2;
+    System.out.println(<font color="#004488">"2: n1.i: "</font> + n1.i +
+      <font color="#004488">", n2.i: "</font> + n2.i);
+    n1.i = 27;
+    System.out.println(<font color="#004488">"3: n1.i: "</font> + n1.i +
+      <font color="#004488">", n2.i: "</font> + n2.i);
+  }
+} <font color="#009900">///:~</font></font></pre>
+<font size="+1">  </font></blockquote>
+<div align="left"> 
+  <p><font face="Georgia">Класс <b>Number</b> - прост и внутри функции <b>main(&nbsp;)</b> 
+    создаются два его экземпляра .(<b>n1</b> и <b>n2</b>). Переменная Значения 
+    <b>i</b> в каждом из <b>Number</b> имеют разные значения, а затем <b>n2</b> 
+    присваивается <b>n1</b>, а <b>n1 </b>изменяется. Во многих языках программирования 
+    вы можете ожидать, что <b>n1</b> и <b>n2</b> независимы все время, но потому 
+    что вы присвоили ссылку, здесь приводится вывод, который вы увидите:</font></p>
+</div>
+
+<blockquote><font size="+1"><pre>1: n1.i: 9, n2.i: 47
+2: n1.i: 47, n2.i: 47
+3: n1.i: 27, n2.i: 27</pre></font></blockquote>
+<p><font face="Georgia">Изменение объекта <b>n1</b> проявляется в изменении объекта 
+  <b>n2</b>! Это потому, что и <b>n1</b> и <b>n2</b> содержат одну и ту же ссылку, 
+  которые указывают на один и тот же объект. (Начальная ссылка, которая была в 
+  <b>n1</b> и указывала на объект, содержащий значение 9 была переписана во время 
+  присвоения и на самом деле потерялась; ее объект будет очищен сборщиком мусора.)</font></p>
+<div align="left"> 
+  <p><font face="Georgia">Этот феномен часто называется <a name="Index209"></a><a name="Index210"></a><i>эффектом 
+    наложения</i> (<i>aliasing</i>) и это фундаментальный путь, которым работают 
+    в Java с объектами. Но что, если вы не хотите, чтобы в этом случае возник 
+    эффект наложения? Вы можете воздержаться от присвоения и сказать:</font><br>
+  </p>
+</div>
+
+<blockquote><font size="+1"><pre>n1.i = n2.i;</pre></font></blockquote>
+<p><font face="Georgia">При этом сохраняются два различных объекта вместо отбрасывания 
+  одного и прикрепления <b>n1 </b>и <b>n2</b> к одному и тому же объекту, но вы 
+  скоро поймете, что манипулирование полями внутри объекта - грязный метод и идет 
+  в разрез с принципами хорошего объектно-ориентированного дизайна. Это не тривиальная 
+  тема, так что оставим ее для приложения A, которое посвящено эффекту наложения. 
+  Тем временем, вы должны отложить в мозгу, что присвоение для объектов может 
+  стать источником сюрпризов.</font></p>
+<a name="Heading129"></a><font face="Verdana">
+<h4 align="left"> Эффект наложения при вызове методов<br>
+  <a name="Index211"></a></h4>
+</font><font face="Georgia">Эффект наложения также случается при передаче объектов 
+в метод:</font>
+<blockquote><font size="+1">
+  </font><pre><font size="+1"><font color="#009900">//: c03:PassObject.java</font>
+<font color="#009900">// Передача объектов в метод может быть не тем,</font>
+<font color="#009900">// что вы использовали.</font>
+
+<font color="#0000ff">class</font> Letter {
+  <font color="#0000ff">char</font> c;
+}
+
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> PassObject {
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> f(Letter y) {
+    y.c = 'z';
+  }
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    Letter x = <font color="#0000ff">new</font> Letter();
+    x.c = 'a';
+    System.out.println(<font color="#004488">"1: x.c: "</font> + x.c);
+    f(x);
+    System.out.println(<font color="#004488">"2: x.c: "</font> + x.c);
+  }
+} <font color="#009900">///:~</font></font></pre>
+<font size="+1">  </font></blockquote>
+<p><font face="Georgia">Во многих языках программирования для метод <b>f(&nbsp;)</b> 
+  ожидается создание копии его аргумента <b>Letter y</b> внутри границ этого метода. 
+  Но так как передается ссылка, то строка</font></p>
+<blockquote><font size="+1"><pre>y.c = 'z';</pre></font></blockquote>
+<p><font face="Georgia">на самом деле меняет объект внутри <b>f(&nbsp;)</b>. Вывод 
+  покажет следующее:</font></p>
+<blockquote><font size="+1"><pre>1: x.c: a
+2: x.c: z</pre></font></blockquote>
+<p><font face="Georgia">Эффект наложение и его решение - это сложная проблема, 
+  хотя вы должны ждать до Приложения А ответов на все вопросы, вы должны знать 
+  об этом свойстве, чтобы могли найти все ловушки.</font><a name="_Toc375545250"></a><a name="_Toc481064544"></a></p>
+<a name="Heading130"></a><font face="Verdana">
+<h3 align="left"> Математические операторы<a name="Index212"></a></h3>
+</font>
+<p><font face="Georgia">Основные математические операторы те же, что и допустимые 
+  в большинстве языков программирования: сложение <a name="Index213"></a>(<b>+</b>), 
+  вычитание<a name="Index214"></a> (<b>-</b>), деление<a name="Index215"></a> 
+  (<b>/</b>), умножение<a name="Index216"></a> (<b>*</b>) и остаток от деления<a name="Index217"></a> 
+  (<b>%</b>, которое производит остаток от целочисленнгого деления). Целочисленное 
+  деление в результате выполняет отсечение, а не округление.</font></p>
+<p><font face="Georgia">Java также использует стенографическую запись для одновременного 
+  выполнения операции и присвоения. Это обозначается оператором, следующим за 
+  знаком равенства и совместимо со всеми операциями языка (когда это имеет смысл). 
+  Например, для добавления 4 к переменной <b>x и </b>присвоения результата <b>x</b>, 
+  используйте: <b>x += 4</b>. </font> </p>
+<p><font face="Georgia">Этот пример показывает использование математических операторов:</font></p>
+<blockquote><font size="+1"> 
+  </font><pre><font size="+1"><font color="#009900">//: c03:MathOps.java</font>
+<font color="#009900">// Демонстрация математических операторов.</font>
+<font color="#0000ff">import</font> java.util.*;
+
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> MathOps {
+  <font color="#009900">// Создает стенографию, чтобы меньше печатать:</font>
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> prt(String s) {
+    System.out.println(s);
+  }
+  <font color="#009900">// стенография для печати строки и int:</font>
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> pInt(String s, <font color="#0000ff">int</font> i) {
+    prt(s + <font color="#004488">" = "</font> + i);
+  }
+  <font color="#009900">// </font><font size="+1"><font color="#009900">стенография для печати строки и </font></font><font color="#009900">float:</font>
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> pFlt(String s, <font color="#0000ff">float</font> f) {
+    prt(s + <font color="#004488">" = "</font> + f);
+  }
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    <font color="#009900">// Создает генератор случайных чисел,</font>
+    <font color="#009900">// принимающий текущее время по умолчанию:</font>
+    Random rand = <font color="#0000ff">new</font> Random();
+    <font color="#0000ff">int</font> i, j, k;
+    <font color="#009900">// '%' ограничивает максимальное значение величиной 99:</font>
+    j = rand.nextInt() % 100;
+    k = rand.nextInt() % 100;
+    pInt(<font color="#004488">"j"</font>,j);  pInt(<font color="#004488">"k"</font>,k);
+    i = j + k; pInt(<font color="#004488">"j + k"</font>, i);
+    i = j - k; pInt(<font color="#004488">"j - k"</font>, i);
+    i = k / j; pInt(<font color="#004488">"k </font><font color="#004488">/ j"</font>, i);
+    i = k * j; pInt(<font color="#004488">"k * j"</font>, i);
+    i = k % j; pInt(<font color="#004488">"k % j"</font>, i);
+    j %= k; pInt(<font color="#004488">"j %= k"</font>, j);
+    <font color="#009900">// Проверка чисел с плавающей точкой:</font>
+    <font color="#0000ff">float</font> u,v,w;  <font color="#009900">// Также применима к числам двойной точности</font>
+    v = rand.nextFloat();
+    w = rand.nextFloat();
+    pFlt(<font color="#004488">"v"</font>, v); pFlt(<font color="#004488">"w"</font>, w);
+    u = v + w; pFlt(<font color="#004488">"v + w"</font>, u);
+    u = v - w; pFlt(<font color="#004488">"v - w"</font>, u);
+    u = v * w; pFlt(<font color="#004488">"v * w"</font>, u);
+    u = v / w; pFlt(<font color="#004488">"v </font><font color="#004488">/ w"</font>, u);
+    <font color="#009900">// следующее также работает для</font>
+    <font color="#009900">// char, byte, short, int, long,</font>
+    <font color="#009900">// и double:</font>
+    u += v; pFlt(<font color="#004488">"u += v"</font>, u);
+    u -= v; pFlt(<font color="#004488">"u -= v"</font>, u);
+    u *= v; pFlt(<font color="#004488">"u *= v"</font>, u);
+    u /= v; pFlt(<font color="#004488">"u </font><font color="#004488">/= v"</font>, u);
+  }
+} <font color="#009900">///:~</font></font></pre>
+<font size="+1">  </font></blockquote>
+<p><font face="Georgia">Первое, что вы увидите - это несколько стенаграфических 
+  методов для мечати: метод <b>prt(&nbsp;)</b> печатает <b>String</b>, метод <b>pInt(&nbsp;)</b> 
+  печатает <b>String</b>, а следом за ней <b>int</b>, a <b>pFlt(&nbsp;)</b> печатает 
+  <b>String</b>, а следом <b>float</b>. Конечно они в конце концов используют 
+  <b>System.out.println(&nbsp;)</b>.</font></p>
+<p><font face="Georgia">Для генерации чисел программа сначала создает объект <b>Random</b>. 
+  Поскольку во время создания не передаются аргументы, Java использует текущее 
+  время как источник для генератора случайных чисел. Программа генерирует несколько 
+  случайных чисел разных типов с помощью объекта <b>Random</b>, просто вызывая 
+  разные методы: <b>nextInt(&nbsp;)</b>, <b>nextLong(&nbsp;)</b>,<b> nextFloat(&nbsp;)</b> 
+  или<b> nextDouble(&nbsp;)</b>.</font> </p>
+<p><font face="Georgia">Оператор остатка от деления, когда он используется с результатом 
+  работы генератора случайных чисел, ограничивает результат значением верхней 
+  границы операнда минус единица (в этом случае 99).</font></p>
+<a name="Heading131"></a><font face="Verdana">
+<h4 align="left"> Операторы унарного минуса и плюса<br>
+  <a name="Index218"></a><a name="Index219"></a></h4>
+</font><font face="Georgia">Унарный минус (-)<a name="Index220"></a><a name="Index221"></a> 
+и унарный плюс (+)<a name="Index222"></a><a name="Index223"></a> это такие же 
+операции, как и бинарный минус и плюс. компилятор вычисляет какое использование 
+имеется в виду по спообу записи выражения. Например, выражение</font><br>
+<blockquote><font size="+1"><pre>x = -a;</pre></font></blockquote>
+<div align="left">
+  <p><font face="Georgia">имеет очевидный смысл. Компилятор способен вычислить:</font></p>
+</div>
+
+<blockquote><font size="+1"><pre>x = a * -b;</pre></font></blockquote>
+<p><font face="Georgia">но читатель может быть сконфужен, так что лучше сказать:</font></p>
+<blockquote><font size="+1"><pre>x = a * (-b);</pre></font></blockquote>
+<p><font face="Georgia">Унарный минус производит отрицательное значение. Унарный 
+  плюс производится симметрично унарному минусу, хотя не производит никакого эффекта.</font><a name="_Toc375545251"></a><a name="_Toc481064545"></a></p>
+<a name="Heading132"></a><font face="Verdana">
+<h3 align="left"> Автоинкремент и автодекремент</h3>
+</font><div align="left">
+  <p><font face="Georgia">Java, как и C, полон сокращений. Сокращения могут сделать 
+    код более простым в наборе и либо легким, либо трудным для чтения.</font></p>
+</div>
+<p><font face="Georgia">Два из лучших сокращений - это операторы инкремента<a name="Index224"></a> 
+  и декремента<a name="Index225"></a> (часто называемые операторами автоинкремента 
+  <a name="Index226"></a> и автодекремента<a name="Index227"></a>). Оператор декремента 
+  является <b>--</b> и обозначает “уменьшение на одну единицу измерения”. 
+  Оператор инкремента - <b>++</b> и означает “увеличить на одну единицу 
+  измерения”. Если, например, <b>a</b> - <b>int</b>, выражение <b>++a</b> 
+  еквивалентно (<b>a = a + 1</b>). Операторы инкремента и декремента в результате 
+  производят такое же значение, что и переменная.</font></p>
+<p><font face="Georgia">Есть две версии каждого типа оператора, часто называемые 
+  префиксной и постфиксной версией. Преинкремент означает, что оператор <b>++ 
+  </b>стоит перед переменной или выражением, а постинкремент означает, что оператор 
+  <b>++</b> стоит после переменной или выражения. Аналогично, предекремент означает, 
+  что оператор -- стоит перед переменной или выражением, а постдекремент означает, 
+  что оператор -- стоит после переменной или выражения. Для преинкремента и предекремента 
+  (т.е. <b>++a</b> или <b>--a</b>), выполняется операция и производится значение. 
+  Для постинкремента и постдекремента (т.е. <b>a++ </b>или <b>a--</b>) сначала 
+  производится значение, а затем выполняется операция. Как пример:</font></p>
+<blockquote><font size="+1">
+  </font><pre><font size="+1"><font color="#009900">//: c03:AutoInc.java</font>
+<font color="#009900">// Демонстрирует операторы ++ и --.</font>
+
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> AutoInc {
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    <font color="#0000ff">int</font> i = 1;
+    prt(<font color="#004488">"i : "</font> + i);
+    prt(<font color="#004488">"++i : "</font> + ++i); <font color="#009900">// Преинкремент</font>
+    prt(<font color="#004488">"i++ : "</font> + i++); <font color="#009900">// Постинкремент</font>
+    prt(<font color="#004488">"i : "</font> + i);
+    prt(<font color="#004488">"--i : "</font> + --i); <font color="#009900">// Предекремент</font>
+    prt(<font color="#004488">"i-- : "</font> + i--); <font color="#009900">// Постдекремент</font>
+    prt(<font color="#004488">"i : "</font> + i);
+  }
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> prt(String s) {
+    System.out.println(s);
+  }
+} <font color="#009900">///:~</font></font></pre>
+<font size="+1">  </font></blockquote>
+<p><font face="Georgia">Вывод этой программы:</font></p>
+<blockquote><font size="+1"><pre>i : 1
+++i : 2
+i++ : 2
+i : 3
+--i : 2
+i-- : 2
+i : 1</pre></font></blockquote>
+<p><font face="Georgia">Вы можете увидеть, что для префиксной формы вы получаете 
+  значение после выполнения операции, а при постфиксной форме вы получаете значение 
+  до выполнения операции. Это операторы (отличные от использующих присвоение), 
+  которые имеют побочные эффекты. (То есть, они меняют операнд раньше, чем используют 
+  его значение.)<a name="Index228"></a></font></p>
+<p><font face="Georgia">Оператор инкремента - это одно из объяснений для имени 
+  C++, подразумевающее “один шаг в сторону от C”. В ранней речи о 
+  Java <a name="Index229"></a>Bill Joy (один из создателей) сказал, что “Java=C++--” 
+  (C плюс плюс минус минус), намекая, что Java - это C++ с удаленной ненужной 
+  сложной частью и поэтому более простой язык. Когда вы будете продвигаться п 
+  окниге, вы увидите, что многие части проще, и теперь Java <i>не так</i> прост, 
+  как <a name="Index230"></a>C++. </font><a name="_Toc375545252"></a><a name="_Toc481064546"></a></p>
+<a name="Heading133"></a><font face="Verdana"> 
+<h3 align="left"> Операторы сравнения<br>
+  <a name="Index231"></a><a name="Index232"></a></h3>
+</font>
+<p><font face="Georgia">Операторы сравнения генерируют <b>булевый</b> результат. 
+  Они вычисляют отношения между значениями и операндами. Выражение отношения производит 
+  <b>true</b>, если выражение истинное, а <b>false</b>, если выражение ложное. 
+  Выраж</font><font face="Georgia">ения отношения, это: меньше чем (&lt;)<a name="Index233"></a>, 
+  больше чем (&gt;)<a name="Index234"></a>, меньше либо равно, чем (&lt;=)<a name="Index235"></a>, 
+  больше либо равно, чем (&gt;=)<a name="Index236"></a>, равно (==)<a name="Index237"></a> 
+  и не равно (!=)<a name="Index238"></a>. <a name="Index239"></a><a name="Index240"></a><a name="Index241"></a><a name="Index242"></a><a name="Index243"></a><a name="Index244"></a>Равно 
+  и неравно работает со всеми встроенными типами данных, но другие сравнения работают 
+  только с типом <b>boolean<a name="Index245"></a></b>.</font></p>
+<div align="left"></div>
+<a name="Heading134"></a><font face="Verdana">
+<h4 align="left"> Проверка равенства объектов<br>
+  <a name="Index246"></a><a name="Index247"></a></h4></font>
+<p><font face="Georgia">Операторы сравнения <b>==</b> и <b>!=</b> также работают 
+  со всеми объектами, но их значение часто смущает новичков в программировании 
+  на Java. Вот пример:</font></p>
+<blockquote><font size="+1"></font><pre></pre></blockquote></body></html>

@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+public class Test {
+   public Test() {
+   }
+   public static void main(String[] args) {
+      Test test = new Test();
+      TimeZone tz = TimeZone.getDefault();
+      int rawOffset = tz.getRawOffset();
+      System.out.println("Current TimeZone" + tz.getDisplayName() + tz.getID() + "\n\n");
+      // Dispaly all available TimeZones
+      System.out.println("All Available TimeZones \n");
+      String[] idArr = tz.getAvailableIDs();
+      for(int cnt=0;cnt &lt; idArr.length;cnt++){
+      tz = TimeZone.getTimeZone(idArr[cnt]);
+      System.out.println(test.padr(tz.getDisplayName() + 
+         tz.getID(),64) + " raw offset=" + tz.getRawOffset() + 
+         ";hour offset=(" + tz.getRawOffset()/ (1000 * 60 * 60 ) + ")");
+      }
+      // Dispaly all available TimeZones same as for Moscow
+      System.out.println("\n\n TimeZones same as for Moscow \n");
+      idArr = tz.getAvailableIDs(rawOffset);
+      for(int cnt=0;cnt &lt; idArr.length;cnt++){
+         tz = TimeZone.getTimeZone(idArr[cnt]);
+         System.out.println(test.padr(tz.getDisplayName()+ 
+            tz.getID(),64) + " raw offset=" + tz.getRawOffset() + 
+            ";hour offset=(" + tz.getRawOffset()/ (1000 * 60 * 60 ) + ")");
+      }
+   }
+   String padr(String str,int len){
+      if(len - str.length() &gt; 0){
+         char[] buf = new char[len - str.length()];
+         Arrays.fill(buf,' ');
+         return str + new String(buf);
+      }else{
+         return str.substring(0,len);
+      }
+   }
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            14.9.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

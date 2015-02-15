@@ -1,0 +1,5 @@
+
+Thread 3 after notifyAll()
+Thread 1 after wait()
+Thread 2 after wait() 
+	

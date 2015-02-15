@@ -1,0 +1,22 @@
+
+Current TimeZone Moscow Standard TimeEurope/Moscow
+TimeZones same as for Moscow 
+Eastern African TimeAfrica/Addis_Aba raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Asmera raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Dar_es_Sa raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Djibouti raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Kampala raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Khartoum raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Mogadishu raw offset=10800000;hour offset=(3)
+Eastern African TimeAfrica/Nairobi raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Aden raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Baghdad raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Bahrain raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Kuwait raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Qatar raw offset=10800000;hour offset=(3)
+Arabia Standard TimeAsia/Riyadh raw offset=10800000;hour offset=(3)
+Eastern African TimeEAT raw offset=10800000;hour offset=(3)
+Moscow Standard TimeEurope/Moscow raw offset=10800000;hour offset=(3)
+Eastern African TimeIndian/Antananar raw offset=10800000;hour offset=(3)
+Eastern African TimeIndian/Comoro raw offset=10800000;hour offset=(3)
+Eastern African TimeIndian/Mayotte raw offset=10800000;hour offset=(3)

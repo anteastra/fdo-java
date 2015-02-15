@@ -1,0 +1,7 @@
+
+Русский набор ресурсов
+Русский вариант поведения
+Москва
+English resource bundle
+English behavior
+London 

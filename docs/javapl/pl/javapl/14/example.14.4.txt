@@ -1,0 +1,3 @@
+
+Initialy set date: 2002 August 31 23:03:51
+Date with day and month changed: 2002 September 30 23:03:51  

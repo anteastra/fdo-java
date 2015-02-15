@@ -1,0 +1,10 @@
+
+traceroute to netserv1.chg.ru (193.233.46.3), 30 hops max, 38 byte packets
+   1 n3-core.mipt.ru (194.85.80.1) 1.508 ms 0.617 ms 0.798 ms
+   2 mipt-gw-eth0.mipt.ru (193.125.142.177) 2.362 ms 2.666 ms 1.449 ms
+   3 msu-mipt-atm0.mipt.ru (212.16.1.1) 5.536 ms 5.993 ms 10.431 ms
+   4 M9-LYNX.ATM6-0.11.M9-R2.msu.net (193.232.127.229) 12.994 ms 7.830 ms 6.816 ms
+   5 Moscow-BNS045-ATM4-0-3.free.net (147.45.20.37) 12.228 ms 7.041 ms 8.731 ms
+   6 ChgNet-gw.free.net (147.45.20.222) 77.103 ms 75.234 ms 92.334 ms
+   7 netserv1.chg.ru (193.233.46.3) 96.627 ms 94.714 ms 134.676 ms
+        

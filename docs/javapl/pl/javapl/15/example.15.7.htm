@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>			
+try {
+   String fileName = "d:\\file1";
+   InputStream inStream = null;
+   OutputStream outStream = null;
+ 
+   //Записать в файл некоторое количество байт
+   long timeStart = System.currentTimeMillis();
+   outStream = new FileOutputStream(fileName);
+   outStream = new BufferedOutputStream(outStream);
+   for(int i=1000000; --i&gt;=0;) {
+      outStream.write(i);
+   }
+   long time = System.currentTimeMillis() - timeStart;
+   System.out.println("Writing time: " + time + " millisec");
+   outStream.close();
+ 
+   // Определить время считывания без буферизации
+   timeStart = System.currentTimeMillis();
+   inStream = new FileInputStream(fileName);
+   while(inStream.read()!=-1){
+   }
+   time = System.currentTimeMillis() - timeStart;
+   inStream.close();
+   System.out.println("Direct read time: " + (time) + " millisec");
+
+   // Теперь применим буферизацию
+   timeStart = System.currentTimeMillis();
+   inStream = new FileInputStream(fileName);
+   inStream = new BufferedInputStream(inStream);
+   while(inStream.read()!=-1){
+   }
+   time = System.currentTimeMillis() - timeStart;
+   inStream.close();
+   System.out.println("Buffered read time: " + (time) + " millisec");
+} catch (IOException e) {
+   System.out.println("IOException: " + e.toString());
+   e.printStackTrace();
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            15.7.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

@@ -1,0 +1,17 @@
+
+baseclass + "_" + language1 + "_" + country1 + "_" + variant1 
+baseclass + "_" + language1 + "_" + country1 + "_" + variant1 + 
+   ".properties" 
+baseclass + "_" + language1 + "_" + country1 
+baseclass + "_" + language1 + "_" + country1 + ".properties" 
+baseclass + "_" + language1 
+baseclass + "_" + language1 + ".properties" 
+baseclass + "_" + language2 + "_" + country2 + "_" + variant2 
+baseclass + "_" + language2 + "_" + country2 + "_" + variant2 + 
+   ".properties" 
+baseclass + "_" + language2 + "_" + country2 
+baseclass + "_" + language2 + "_" + country2 + ".properties" 
+baseclass + "_" + language2 
+baseclass + "_" + language2 + ".properties" 
+baseclass 
+baseclass + ".properties" 

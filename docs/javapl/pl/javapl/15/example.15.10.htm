@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+// Родительский класс, не реализующий Serializable
+public class Parent {
+   public String firstName;
+   private String lastName;
+   public Parent(){
+      System.out.println("Create Parent");
+      firstName="old_first";
+      lastName="old_last";
+   }
+   public void changeNames() {
+      firstName="new_first";
+      lastName="new_last";
+   }
+   public String toString() {
+      return super.toString()+",first="+firstName+",last="+lastName;
+   }
+}
+// Класс Child, впервые реализовавший Serializable
+public class Child extends Parent implements Serializable {
+   private int age;
+   public Child(int age) {
+      System.out.println("Create Child");
+      this.age=age;
+   }
+   public String toString() {
+      return super.toString()+",age="+age;
+   }
+}
+// Наследник Serializable-класса
+public class Child2 extends Child {
+   private int size;
+   public Child2(int age, int size) {
+      super(age);
+      System.out.println("Create Child2");
+      this.size=size;
+   }
+   public String toString() {
+      return super.toString()+",size="+size;
+   }
+}
+// Запускаемый класс для теста
+public class Test {
+   public static void main(String[] arg) {
+      try {
+         FileOutputStream fos=new FileOutputStream("output.bin");
+         ObjectOutputStream oos=new ObjectOutputStream(fos);
+         Child c=new Child(2);
+         c.changeNames();
+         System.out.println(c);
+         oos.writeObject(c);
+         oos.writeObject(new Child2(3, 4));
+         oos.close();
+         System.out.println("Read objects:");
+         FileInputStream fis=new FileInputStream("output.bin");
+         ObjectInputStream ois=new ObjectInputStream(fis);
+         System.out.println(ois.readObject());
+         System.out.println(ois.readObject());
+         ois.close();
+      } catch (Exception e) { // упрощенная обработка для краткости
+         e.printStackTrace();
+      }
+   }
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            15.10.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

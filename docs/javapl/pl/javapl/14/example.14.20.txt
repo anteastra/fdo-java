@@ -1,0 +1,12 @@
+
+Object value for Key1 = Value 1
+
+Iteration over entrySet
+For key = Key3 value = Value 3
+For key = Key2 value = Value 2
+For key = Key1 value = Value 1
+
+Iteration over keySet
+For key = Key3 value = Value 3
+For key = Key2 value = Value 2
+For key = Key1 value = Value 1 

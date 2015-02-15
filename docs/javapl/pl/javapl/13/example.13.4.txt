@@ -1,0 +1,10 @@
+
+look for class for: demo.lang.Automobile 
+creating vehicle...
+create vehicle: class demo.lang.Automobile
+Automobile go!
+look for class for: demo.lang.Truck
+creating vehicle...
+Instantiation exception: java.lang.InstantiationException
+look for class for: demo.lang.Tank
+Class not found: java.lang.ClassNotFoundException: demo.lang.Tank

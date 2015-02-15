@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+package demo.lang;
+public class Rectangle {
+   public int sideA;
+   public int sideB;
+   public Rectangle(int x, int y) {
+      super();
+      sideA = x;
+      sideB = y;
+   }
+   public boolean equals(Object obj) {
+      if(!(obj instanceof Rectangle)) 
+	     return false;
+      Rectangle ref = (Rectangle)obj;
+      return (((this.sideA==ref.sideA)&amp;&amp;(this.sideB==ref.sideB))||
+              (this.sideA==ref.sideB)&amp;&amp;(this.sideB==ref.sideA));
+   }
+   public static void main(String[] args) {
+      Rectangle r1 = new Rectangle(10,20);
+      Rectangle r2 = new Rectangle(10,10);
+      Rectangle r3 = new Rectangle(20,10);
+      System.out.println("r1.equals(r1) == " + r1.equals(r1));
+      System.out.println("r1.equals(r2) == " + r1.equals(r2));
+      System.out.println("r1.equals(r3) == " + r1.equals(r3));
+      System.out.println("r2.equals(r3) == " + r2.equals(r3));
+      System.out.println("r1.equals(null) == " + r1.equals(null));
+   }
+}    
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            13.1.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

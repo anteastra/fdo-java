@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+String fileName = "d:\\file.txt";
+
+//Строка, которая будет записана в файл
+String data = "Some data to be written and read.\n";
+try{
+   FileWriter fw = new FileWriter(fileName);
+   BufferedWriter bw = new BufferedWriter(fw);
+   System.out.println("Write some data to file: " + fileName);
+
+   // Несколько раз записать строку
+   for(int i=(int)(Math.random()*10);--i&gt;=0;)
+      bw.write(data);
+   bw.close();
+
+   // Считываем результат
+   FileReader fr = new FileReader(fileName);
+   BufferedReader br = new BufferedReader(fr);
+   String s = null;
+   int count = 0;
+   System.out.println("Read data from file: " + fileName);
+
+   // Считывать данные, отображая на экран
+   while((s=br.readLine())!=null)
+      System.out.println("row " + ++count + " read:" + s);
+   br.close();
+} catch(Exception e) {
+   e.printStackTrace();
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            15.15.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

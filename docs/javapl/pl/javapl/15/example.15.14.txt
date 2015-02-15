@@ -1,0 +1,18 @@
+
+Constructing line: 1
+Constructing line: 2
+line 1 = Line@ea2dfe
+line 2 = Line@7182c1
+Read objects:
+Line: 1
+   Object reference: Line@a981ca
+   from point (1.0,1.0) reference=Point@1503a3
+   to point (2.0,2.0) reference=Point@a1c887
+Line: 2
+   Object reference: Line@743399
+   from point (2.0,2.0) reference=Point@a1c887
+   to point (3.0,3.0) reference=Point@e7b241
+Line: 3
+   Object reference: Line@67d940
+   from point (1.0,1.0) reference=Point@e83912
+   to point (2.0,2.0) reference=Point@fae3c6 

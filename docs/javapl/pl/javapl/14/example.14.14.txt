@@ -1,0 +1,3 @@
+
+Called update of Observer 2 from Observable with argument Notify argument
+Called update of Observer 1 from Observable with argument Notify argument 

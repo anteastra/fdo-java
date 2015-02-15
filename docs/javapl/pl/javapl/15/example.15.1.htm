@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>			
+byte[] bytesToWrite = {1, 2, 3};
+byte[] bytesReaded = new byte[10];
+String fileName = "d:\\test.txt";
+try {
+   // Создать выходной поток
+   FileOutputStream outFile = new FileOutputStream(fileName);
+   System.out.println("Файл открыт для записи");
+
+   // Записать массив
+   outFile.write(bytesToWrite);
+   System.out.println("Записано: " + bytesToWrite.length + " байт");
+
+   // По окончании использования должен быть закрыт
+   outFile.close();
+   System.out.println("Выходной поток закрыт");
+
+   // Создать входной поток
+   FileInputStream inFile = new FileInputStream(fileName);
+   System.out.println("Файл открыт для чтения");
+
+   // Узнать, сколько байт готово к считыванию
+   int bytesAvailable = inFile.available();
+   System.out.println("Готово к считыванию: " + bytesAvailable + " байт");
+
+   // Считать в массив
+   int count = inFile.read(bytesReaded,0,bytesAvailable);
+   System.out.println("Считано: " + count + " байт");
+   for (i=0;i&lt;count;i++)
+      System.out.print(bytesReaded[i]+",");
+   System.out.println();
+   inFile.close();
+   System.out.println("Входной поток закрыт");
+} catch (FileNotFoundException e) {
+   System.out.println("Невозможно произвести запись в файл: " + fileName);
+} catch (IOException e) {
+   System.out.println("Ошибка ввода/вывода: " + e.toString());
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            15.1.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

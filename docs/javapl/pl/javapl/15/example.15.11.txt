@@ -1,0 +1,12 @@
+
+Create Parent
+Create Child
+Child@ad3ba4,first=new_first,last=new_last,age=2
+Create Parent
+Create Child
+Create Child2
+Read objects:
+Create Parent
+Child@723d7c,first=old_first,last=old_last,age=2
+Create Parent
+Child2@22c95b,first=old_first,last=old_last,age=3,size=4 

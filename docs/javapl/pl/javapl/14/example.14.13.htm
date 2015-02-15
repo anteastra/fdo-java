@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>INTUIT.ru::Интернет-Университет Информационных Технологий</title><link href="/ssi/style.css" type="text/css" rel="stylesheet"></link></head><body leftmargin="10" topmargin="0" marginheight="0" marginwidth="10"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"><tr><td><div class="example"><pre>
+public class TestObservable extends java.util.Observable {
+   private String name = "";
+   public TestObservable(String name) {
+      this.name = name;
+   }
+
+   public void modify() {
+      setChanged();
+   }
+
+   public String getName() {
+      return name;
+   }
+}
+
+public class TestObserver implements java.util.Observer {
+   private String name = "";
+
+   public TestObserver(String name) {
+      this.name = name;
+   }
+   public void update(java.util.Observable o,Object arg) {
+      String str = "Called update of " + name;
+      str += " from " + ((TestObservable)o).getName();
+      str += " with argument " + (String)arg;
+      System.out.println(str);
+   }
+}
+public class Test {
+   public Test() {
+   }
+   public static void main(String[] args) {
+      Test test = new Test();
+      TestObservable to = new TestObservable("Observable");
+      TestObserver o1 = new TestObserver("Observer 1");
+      TestObserver o2 = new TestObserver("Observer 2");
+      to.addObserver(o1);
+      to.addObserver(o2);
+      to.modify();
+      to.notifyObservers("Notify argument");
+   }
+} 
+</pre></div></td></tr><tr><td valign="bottom" align="center" class="objectName"><hr></hr>
+            Пример 
+            14.13.
+            </td></tr><tr><td valign="bottom" align="center"><a href="#" onclick="window.close(); return false;" class="allnews">Закрыть окно</a><br></br><br></br></td></tr></table></body></html>

@@ -1,0 +1,4 @@
+
+java.util.SimpleTimeZone[id=Europe/Moscow,offset=10800000,dstSavings=3600000,useDaylight=true,
+startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=7200000,startTimeMode=0,
+endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=10800000,endTimeMode=0]

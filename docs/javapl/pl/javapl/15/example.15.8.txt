@@ -1,0 +1,4 @@
+
+Writing time: 359 millisec
+Direct read time: 6546 millisec
+Buffered read time: 250 millisec
